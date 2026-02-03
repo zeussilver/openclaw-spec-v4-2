@@ -1,0 +1,9 @@
+# requirements.allowlist.txt
+# Only these packages can be used by skills in the sandbox
+
+# Data validation
+pydantic==2.5.0
+jsonschema==4.20.0
+
+# Testing (needed inside sandbox)
+pytest==7.4.0

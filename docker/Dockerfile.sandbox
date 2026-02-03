@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+# Install allowed dependencies (pre-installed, no new packages at runtime)
+COPY docker/requirements.allowlist.txt /tmp/
+RUN pip install --no-cache-dir -r /tmp/requirements.allowlist.txt \
+    && rm /tmp/requirements.allowlist.txt \
+    && rm -rf /root/.cache
+
+# Remove pip to prevent runtime installation
+RUN rm -rf /usr/local/bin/pip* /usr/local/lib/python*/dist-packages/pip*
+
+# Copy harness
+COPY src/sandbox/harness.py /sandbox/
+
+# Create non-root user
+RUN useradd -m -s /bin/false sandbox
+USER sandbox
+
+WORKDIR /work
