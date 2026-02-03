@@ -41,9 +41,4 @@ f55f27b task-1: project skeleton and dependency lock
   - 注意 `spec/` 当前未被 git 跟踪（见 `reports/repo_profile.md`），若要对外发布规范，需先纳入版本控制。
 
 ## 5) 版本建议
-- 如果遵循 SemVer 且这是第一版可用实现：建议发布 `0.1.0` 或 `0.1.0-project-a`（与 `spec/gsd_tasks.md` 中 tag 建议一致）。
-- 若规范已经对外承诺 `2.0.0`（见 `spec/README.md` 与其他文件头部），则需统一版本口径：
-  - 要么将代码版本提升至 `2.0.0`；
-  - 要么将规范版本调整为 `0.x`。
-
-> 建议在合并到 main 前明确版本策略与对外发布标签，避免版本口径漂移。
+- 已统一版本口径为 `2.0.0`（代码与规范一致）。建议发布 `v2.0.0-project-a` 作为对外版本标签。

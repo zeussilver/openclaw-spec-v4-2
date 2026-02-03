@@ -22,7 +22,6 @@
 ## 5) 可维护性
 - 目录结构清晰（`src/`, `tests/`, `docker/`, `data/`）。
 - 存在 `.venv/`、`.pytest_cache/` 等本地目录；虽已在 `.gitignore`，但需避免误提交。
-- `spec/` 目前为 **未跟踪文件**（见 `reports/repo_profile.md`），将导致规范不可追溯。
 
 ## 6) 问题分级
 
@@ -32,7 +31,6 @@
 ### P1
 - **缺少 CI**：无法保证 lint/test/contract 校验在合并前通过。
 - **LICENSE 缺失**：与 README 中 “Proprietary” 表述不一致，法律/合规风险。
-- **规范未纳入版本控制**：`spec/` 未追踪导致规范与实现漂移风险。
 
 ### P2
 - 缺少 CONTRIBUTING / Code of Conduct。
@@ -41,6 +39,5 @@
 ## 7) 高性价比改进建议（3-5 条）
 1. 新增 CI（ruff + pytest + spec contract lint）。
 2. 提供 LICENSE（与 README 的“Proprietary”一致）。
-3. 将 `spec/` 纳入 git 追踪，作为“规范单一来源”。
-4. 增加 CONTRIBUTING，写明开发/验证/发布流程。
-5. 提供统一命令入口（如 `make validate` 或 `scripts/validate.sh`）。
+3. 增加 CONTRIBUTING，写明开发/验证/发布流程。
+4. 提供统一命令入口（如 `make validate` 或 `scripts/validate.sh`）。

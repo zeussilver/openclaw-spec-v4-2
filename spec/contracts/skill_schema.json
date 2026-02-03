@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://openclaw.dev/schemas/skill.json",
+  "title": "OpenClaw Skill Manifest",
+  "description": "技能元数据契约，每个技能必须包含符合此 schema 的 skill.json",
+  "type": "object",
+  "required": ["name", "version", "description", "inputs_schema", "outputs_schema", "permissions"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{2,63}$",
+      "description": "技能名称，小写字母开头，只包含小写字母、数字、下划线，3-64字符"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "语义版本号，格式：major.minor.patch"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500,
+      "description": "技能功能描述，10-500字符"
+    },
+    "author": {
+      "type": "string",
+      "default": "auto-generated",
+      "description": "技能作者或生成来源"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "创建时间，ISO 8601 格式"
+    },
+    "inputs_schema": {
+      "type": "object",
+      "description": "action() 函数输入参数的 JSON Schema",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "object"
+        },
+        "properties": {
+          "type": "object"
+        },
+        "required": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "required": ["type", "properties"]
+    },
+    "outputs_schema": {
+      "type": "object",
+      "description": "action() 函数返回值的 JSON Schema",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": ["type"]
+    },
+    "permissions": {
+      "type": "object",
+      "description": "技能所需权限声明",
+      "required": ["filesystem", "network", "subprocess"],
+      "additionalProperties": false,
+      "properties": {
+        "filesystem": {
+          "type": "string",
+          "enum": ["none", "read_workdir", "write_workdir"],
+          "description": "文件系统权限：none=无，read_workdir=只读工作目录，write_workdir=可写工作目录"
+        },
+        "network": {
+          "type": "boolean",
+          "description": "是否需要网络访问（MVP 始终为 false）"
+        },
+        "subprocess": {
+          "type": "boolean",
+          "description": "是否需要执行子进程（MVP 始终为 false）"
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "依赖的 Python 包列表，必须在 allowlist 内",
+      "items": {
+        "type": "object",
+        "required": ["name", "version"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "包名"
+          },
+          "version": {
+            "type": "string",
+            "description": "精确版本号"
+          }
+        }
+      },
+      "default": []
+    },
+    "tags": {
+      "type": "array",
+      "description": "技能标签，用于分类和搜索",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_-]{1,31}$"
+      },
+      "default": []
+    },
+    "examples": {
+      "type": "array",
+      "description": "使用示例",
+      "items": {
+        "type": "object",
+        "required": ["input", "output"],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "input": {
+            "type": "object"
+          },
+          "output": {}
+        }
+      },
+      "default": []
+    }
+  }
+}

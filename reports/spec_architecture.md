@@ -14,9 +14,9 @@
 - 规范变更流程：
   - `spec/iteration.md` 要求“遇到问题先更新 spec”，并在文件顶部维护 Changelog，以及在 `spec/changes/NNN-*.md` 记录变更。
 - 发布与版本控制提示：
-  - `spec/gsd_tasks.md` 中给出 `git tag v0.1.0-project-a` 的里程碑标记建议。
-- **风险提示**：
-  - `pyproject.toml` 中项目版本为 `0.1.0`，而规范文档版本为 `2.0.0`，存在语义偏差的可能（版本口径不一致）。
+  - `spec/gsd_tasks.md` 中给出 `git tag v2.0.0-project-a` 的里程碑标记建议。
+- **版本口径**：
+  - 代码与规范已统一为 `2.0.0`，需在后续发布中保持同步。
 
 ## 3) 契约边界（模块/目录 → 职责 → 对外契约 → 依赖）
 依据 `spec/architecture.md` 的模块划分与接口说明：
@@ -108,7 +108,5 @@ erDiagram
   - `spec/architecture.md` 与 `spec/roadmap_b.md` 引用 `src/skill_loader.py`，但 `src/` 实际不存在该文件（`ls src` 仅含 `day_logger.py`, `night_evolver.py` 等）。
 - **规范描述的内置技能缺失**：
   - `spec/architecture.md` 描述 `skills/text_echo/` 作为内置技能，但 `skills/` 目录目前仅有 `.gitkeep`（`find skills/ -maxdepth 2` 结果）。
-- **规范目录未纳入 git**：
-  - `git status` 显示 `spec/` 为未跟踪文件（见 `reports/repo_profile.md`），导致规范变更不可追溯。
-- **版本口径冲突**：
-  - 规范声明 `2.0.0`，代码 `pyproject.toml` 为 `0.1.0`，需确认对外版本策略。
+- **版本一致性维护**：
+  - 当前版本已统一为 `2.0.0`，后续需在 `spec/*` 与 `pyproject.toml` 中同步更新。

@@ -7,17 +7,16 @@
   4. 维护技能版本注册表并回滚（`src/registry.py`, `src/rollback.py`）。
   5. 提供完整测试与验收路径（`spec/acceptance.md`, `tests/`）。
 - 现在仓库健康度：黄。
-  - 理由：缺少 CI（`repo_review.md`）；规范未纳入 git 追踪（`reports/repo_profile.md`）；规范版本 `2.0.0` 与代码 `0.1.0` 口径不一致（`spec/*.md` 与 `pyproject.toml`）。
+  - 理由：缺少 CI 与 LICENSE（`repo_review.md`）；契约与实现校验仍未对齐（`reports/contract_lint_report.md`）。
 - P0 风险（必须修）：无明确 P0。
 - P1（应该修）：
-  - 规范未纳入版本控制（`reports/repo_profile.md`）。
   - Schema 约束强于实现校验（`spec/contracts/skill_schema.json` vs `src/models/skill.py`，见 `reports/contract_lint_report.md`）。
   - 缺少 CI 与 LICENSE（`reports/repo_review.md`）。
   - 规范描述引用 `src/skill_loader.py`，但实际不存在（`reports/spec_architecture.md`）。
 - 下一步 2 周路线图：
-  1. **W1**：把 `spec/` 纳入 git；补齐 CI 模板（建议 `.github/workflows`），并补充 `LICENSE`。
+  1. **W1**：补齐 CI 模板（建议 `.github/workflows`），并补充 `LICENSE`。
   2. **W1**：对齐契约与实现校验（在 `SkillManifest` 中校验 `inputs_schema`/`outputs_schema`）。
-  3. **W2**：确认版本策略（`spec` vs `pyproject`），发布首个可对外说明的 tag。
+  3. **W2**：发布 `v2.0.0-project-a` tag，形成可对外说明版本。
 - 我如何使用：
   - 一键验证命令：
     ```bash

@@ -63,8 +63,8 @@ python -m src.rollback --skill <name> --to <version> --registry data/registry.js
    - Sandbox 验证依赖 Docker 资源限制与隔离策略。
 2. **MockLLM 能否换成真实 LLM？**
    - 规范中预留接口（`src/llm/base.py`），Project B 规划引入真实 LLM。
-3. **为什么 spec 和代码版本不一致？**
-   - 目前规范标注 `2.0.0`，代码为 `0.1.0`，需要统一口径。
+3. **为什么 spec 和代码版本可能会漂移？**
+   - 已统一到 `2.0.0`，后续请确保 `pyproject.toml` 与 `spec/*` 头部版本同步更新。
 4. **如何确认技能契约符合规范？**
    - 以 `spec/contracts/skill_schema.json` 为准，并运行 schema 校验。
 5. **如果测试失败，先改代码还是改规范？**
