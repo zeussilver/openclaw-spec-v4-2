@@ -138,6 +138,41 @@ class TestSkillManifest:
             SkillManifest(**valid_manifest_data)
         assert "name" in str(exc.value)
 
+    def test_inputs_schema_requires_type_object(self, valid_manifest_data):
+        """inputs_schema must have type: object."""
+        valid_manifest_data["inputs_schema"] = {"properties": {"text": {"type": "string"}}}
+        with pytest.raises(ValidationError) as exc:
+            SkillManifest(**valid_manifest_data)
+        assert "inputs_schema" in str(exc.value)
+
+    def test_inputs_schema_requires_properties(self, valid_manifest_data):
+        """inputs_schema must include properties."""
+        valid_manifest_data["inputs_schema"] = {"type": "object"}
+        with pytest.raises(ValidationError) as exc:
+            SkillManifest(**valid_manifest_data)
+        assert "inputs_schema" in str(exc.value)
+
+    def test_outputs_schema_requires_type(self, valid_manifest_data):
+        """outputs_schema must include type."""
+        valid_manifest_data["outputs_schema"] = {}
+        with pytest.raises(ValidationError) as exc:
+            SkillManifest(**valid_manifest_data)
+        assert "outputs_schema" in str(exc.value)
+
+    def test_unknown_top_level_field_rejected(self, valid_manifest_data):
+        """Unknown top-level field is rejected."""
+        valid_manifest_data["unknown_field"] = "value"
+        with pytest.raises(ValidationError) as exc:
+            SkillManifest(**valid_manifest_data)
+        assert "unknown_field" in str(exc.value)
+
+    def test_unknown_permission_field_rejected(self, valid_manifest_data):
+        """Unknown permission field is rejected."""
+        valid_manifest_data["permissions"]["unknown"] = True
+        with pytest.raises(ValidationError) as exc:
+            SkillManifest(**valid_manifest_data)
+        assert "permissions" in str(exc.value)
+
 
 class TestDependency:
     """Tests for Dependency model."""

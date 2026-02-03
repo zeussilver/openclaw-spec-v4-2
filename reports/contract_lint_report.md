@@ -30,10 +30,7 @@
 - 无。
 
 ### P1（高风险误用 / 契约与实现不一致）
-- **Schema 约束强于实现校验**：
-  - `spec/contracts/skill_schema.json` 要求 `inputs_schema.type` 与 `outputs_schema.type` 为必填，且 `inputs_schema.properties` 为必填。
-  - `src/models/skill.py` 中 `SkillManifest.inputs_schema`/`outputs_schema` 仅为 `dict`，未校验 `type/properties` 等约束。
-  - 影响：实现端可能接受不满足规范的 `skill.json`，导致下游解析/代码生成风险。
+- 无（已将 `SkillManifest` 与 schema 约束对齐）。
 
 ### P2（一致性/维护成本）
 - 文档中存在“反引号路径”引用但非严格链接：
@@ -47,8 +44,8 @@
    - `tools/contract_lint/lint.py`
    - 功能：JSON Schema 合法性 + `$ref` + Markdown 链接检查（warning 级别）。
 
-2. **CI Gate（建议）**
-   - 在 `.github/workflows/spec-validate.yml` 中运行：
+2. **CI Gate（已接入）**
+   - 已在 `.github/workflows/ci.yml` 中运行：
      - `uv sync`
      - `uv run python tools/contract_lint/lint.py`
      - 若需要强约束，可将 warning 提升为 error（后续迭代）。
