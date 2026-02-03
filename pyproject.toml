@@ -1,0 +1,18 @@
+[project]
+name = "openclaw"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jsonschema>=4.26.0",
+    "pydantic>=2.12.5",
+    "pytest>=9.0.2",
+    "ruff>=0.14.14",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "pytest-cov>=7.0.0",
+]

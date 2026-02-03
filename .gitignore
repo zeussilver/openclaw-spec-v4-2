@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+data/nightly_queue.json
+data/registry.json
+data/audit.log
+skills_staging/*
+!skills_staging/.gitkeep
+skills_prod/*
+!skills_prod/.gitkeep
