@@ -15,7 +15,7 @@ def _load_schema() -> dict:
         return json.load(f)
 
 
-def validate_manifest(manifest: dict) -> tuple[bool, list[str]]:
+def validate_manifest(manifest: dict, *, enforce_mvp_constraints: bool = True) -> tuple[bool, list[str]]:
     """
     Validate a manifest against the skill schema and MVP constraints.
 
@@ -39,13 +39,14 @@ def validate_manifest(manifest: dict) -> tuple[bool, list[str]]:
     except json.JSONDecodeError as e:
         errors.append(f"Schema JSON decode error: {e}")
 
-    # MVP constraints: network must be False, subprocess must be False
-    permissions = manifest.get("permissions", {})
+    if enforce_mvp_constraints:
+        # MVP constraints: network must be False, subprocess must be False
+        permissions = manifest.get("permissions", {})
 
-    if permissions.get("network") is True:
-        errors.append("MVP constraint violation: network must be False")
+        if permissions.get("network") is True:
+            errors.append("MVP constraint violation: network must be False")
 
-    if permissions.get("subprocess") is True:
-        errors.append("MVP constraint violation: subprocess must be False")
+        if permissions.get("subprocess") is True:
+            errors.append("MVP constraint violation: subprocess must be False")
 
     return (len(errors) == 0, errors)

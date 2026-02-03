@@ -10,6 +10,14 @@
       "name": "remote-skill",
       "url": "https://example.com/org/skill-repo.git",
       "subdir": "skills/echo"
+    },
+    {
+      "type": "github_code_search",
+      "name": "github-search",
+      "query": "\"permissions\" \"inputs_schema\" \"outputs_schema\"",
+      "filename": "skill.json",
+      "limit": 20,
+      "owners": ["your-org-or-user"]
     }
   ]
 }

@@ -150,6 +150,14 @@ class TestMVPConstraints:
         assert is_valid is False
         assert len(errors) >= 2
 
+    def test_mvp_constraints_can_be_relaxed(self, valid_manifest):
+        """MVP constraints can be disabled for aggressive testing."""
+        valid_manifest["permissions"]["network"] = True
+        valid_manifest["permissions"]["subprocess"] = True
+        is_valid, errors = validate_manifest(valid_manifest, enforce_mvp_constraints=False)
+        assert is_valid is True
+        assert errors == []
+
 
 class TestPermissionsValidation:
     """Tests for permissions field validation."""

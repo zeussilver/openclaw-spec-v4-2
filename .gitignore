@@ -10,6 +10,8 @@ build/
 data/nightly_queue.json
 data/registry.json
 data/audit.log
+data/aggressive_skills/
+reports/aggressive_test/
 skills_staging/*
 !skills_staging/.gitkeep
 skills_prod/*
