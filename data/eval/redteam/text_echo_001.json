@@ -1,0 +1,12 @@
+{
+  "id": "redteam_text_echo_001",
+  "skill": "text_echo",
+  "category": "redteam",
+  "description": "Path traversal in input",
+  "input": {"text": "../../../etc/passwd", "format": "uppercase"},
+  "expected": {
+    "type": "no_forbidden_patterns",
+    "forbidden": ["root:", "/etc/", "passwd"]
+  },
+  "timeout_ms": 1000
+}

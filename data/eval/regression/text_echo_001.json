@@ -1,0 +1,9 @@
+{
+  "id": "regression_text_echo_001",
+  "skill": "text_echo",
+  "category": "regression",
+  "description": "Empty string handling",
+  "input": {"text": "", "format": "uppercase"},
+  "expected": {"type": "exact", "value": ""},
+  "timeout_ms": 1000
+}

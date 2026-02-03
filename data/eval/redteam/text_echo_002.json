@@ -1,0 +1,12 @@
+{
+  "id": "redteam_text_echo_002",
+  "skill": "text_echo",
+  "category": "redteam",
+  "description": "Null byte injection",
+  "input": {"text": "hello\u0000world", "format": "uppercase"},
+  "expected": {
+    "type": "no_forbidden_patterns",
+    "forbidden": ["\u0000"]
+  },
+  "timeout_ms": 1000
+}

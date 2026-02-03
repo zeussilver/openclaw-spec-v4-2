@@ -1,0 +1,9 @@
+{
+  "id": "replay_text_echo_001",
+  "skill": "text_echo",
+  "category": "replay",
+  "description": "Uppercase transformation",
+  "input": {"text": "hello", "format": "uppercase"},
+  "expected": {"type": "exact", "value": "HELLO"},
+  "timeout_ms": 1000
+}

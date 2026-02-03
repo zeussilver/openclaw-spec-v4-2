@@ -1,0 +1,9 @@
+{
+  "id": "replay_text_echo_003",
+  "skill": "text_echo",
+  "category": "replay",
+  "description": "Title case transformation",
+  "input": {"text": "hello world", "format": "title"},
+  "expected": {"type": "exact", "value": "Hello World"},
+  "timeout_ms": 1000
+}

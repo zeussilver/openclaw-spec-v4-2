@@ -1,0 +1,9 @@
+{
+  "id": "replay_filename_002",
+  "skill": "safe_filename_normalize",
+  "category": "replay",
+  "description": "Special characters removal",
+  "input": {"filename": "file@#$%.txt"},
+  "expected": {"type": "exact", "value": "file.txt"},
+  "timeout_ms": 1000
+}

@@ -1,0 +1,9 @@
+{
+  "id": "regression_text_echo_002",
+  "skill": "text_echo",
+  "category": "regression",
+  "description": "Unicode handling",
+  "input": {"text": "你好世界", "format": "uppercase"},
+  "expected": {"type": "exact", "value": "你好世界"},
+  "timeout_ms": 1000
+}

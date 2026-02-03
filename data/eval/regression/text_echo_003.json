@@ -1,0 +1,9 @@
+{
+  "id": "regression_text_echo_003",
+  "skill": "text_echo",
+  "category": "regression",
+  "description": "Special characters preserved",
+  "input": {"text": "Hello! @#$%", "format": "lowercase"},
+  "expected": {"type": "exact", "value": "hello! @#$%"},
+  "timeout_ms": 1000
+}

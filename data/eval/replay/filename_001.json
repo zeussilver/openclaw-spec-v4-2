@@ -1,0 +1,9 @@
+{
+  "id": "replay_filename_001",
+  "skill": "safe_filename_normalize",
+  "category": "replay",
+  "description": "Basic filename normalization",
+  "input": {"filename": "My Document.pdf"},
+  "expected": {"type": "exact", "value": "my_document.pdf"},
+  "timeout_ms": 1000
+}
