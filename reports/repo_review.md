@@ -1,8 +1,8 @@
 # Repo Review (Engineering Quality & Risk)
 
 ## 1) CI / Automation
-- **CI 状态**：未发现 `.github/workflows`（`ls .github` 为空），当前无自动化 lint/test/validate。
-- **现有脚本**：`scripts/spec-review.sh` 提供手工规范回顾清单；缺少自动化 gate。
+- **CI 状态**：已新增 `.github/workflows/ci.yml`（包含 ruff + pytest + contract lint）。
+- **现有脚本**：`scripts/spec-review.sh` 仍提供手工规范回顾清单。
 
 ## 2) 依赖与锁定
 - **依赖声明**：`pyproject.toml`（`jsonschema`, `pytest`, `ruff`, `pydantic`, `docker`）。
@@ -29,7 +29,6 @@
 - 无直接阻断问题。
 
 ### P1
-- **缺少 CI**：无法保证 lint/test/contract 校验在合并前通过。
 - **LICENSE 缺失**：与 README 中 “Proprietary” 表述不一致，法律/合规风险。
 
 ### P2
@@ -37,7 +36,6 @@
 - 缺少统一的 `make` 或 `task` 入口，验证路径分散。
 
 ## 7) 高性价比改进建议（3-5 条）
-1. 新增 CI（ruff + pytest + spec contract lint）。
-2. 提供 LICENSE（与 README 的“Proprietary”一致）。
-3. 增加 CONTRIBUTING，写明开发/验证/发布流程。
-4. 提供统一命令入口（如 `make validate` 或 `scripts/validate.sh`）。
+1. 提供 LICENSE（与 README 的“Proprietary”一致）。
+2. 增加 CONTRIBUTING，写明开发/验证/发布流程。
+3. 提供统一命令入口（如 `make validate` 或 `scripts/validate.sh`）。
