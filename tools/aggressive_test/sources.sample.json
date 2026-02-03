@@ -1,0 +1,15 @@
+{
+  "sources": [
+    {
+      "type": "path",
+      "name": "local-skill",
+      "path": "skills/example_skill"
+    },
+    {
+      "type": "git",
+      "name": "remote-skill",
+      "url": "https://example.com/org/skill-repo.git",
+      "subdir": "skills/echo"
+    }
+  ]
+}

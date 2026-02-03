@@ -19,15 +19,26 @@ from docker.errors import APIError, ImageNotFound
 class SandboxRunner:
     """Docker-based sandbox runner for skill verification."""
 
-    def __init__(self, image: str = "openclaw-sandbox:latest", timeout: int = 30):
+    def __init__(
+        self,
+        image: str = "openclaw-sandbox:latest",
+        timeout: int = 30,
+        network_mode: str = "none",
+        allow_network: bool = False,
+    ):
         """Initialize sandbox runner.
 
         Args:
             image: Docker image name for sandbox
             timeout: Maximum execution time in seconds
+            network_mode: Docker network mode (default: "none")
+            allow_network: Require explicit opt-in for non-"none" network modes
         """
+        if network_mode != "none" and not allow_network:
+            raise ValueError("network_mode requires allow_network=True")
         self.image = image
         self.timeout = timeout
+        self.network_mode = network_mode
         self._client: docker.DockerClient | None = None
 
     @property
@@ -83,8 +94,8 @@ class SandboxRunner:
                 self.image,
                 command=["python", "/sandbox/harness.py", "/skill"],
                 volumes=volumes,
-                # Security: Network isolation
-                network_mode="none",
+                # Security: Network isolation (default: none)
+                network_mode=self.network_mode,
                 # Security: Read-only filesystem
                 read_only=True,
                 # Security: Resource limits
