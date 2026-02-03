@@ -2,11 +2,10 @@
 
 import json
 from datetime import datetime
-from pathlib import Path
 
 import pytest
 
-from src.models.registry import RegistryData, SkillEntry, SkillVersion, ValidationResult
+from src.models.registry import RegistryData, ValidationResult
 from src.registry import Registry, compute_hash
 
 
