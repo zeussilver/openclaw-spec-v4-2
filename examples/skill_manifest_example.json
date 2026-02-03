@@ -1,0 +1,35 @@
+{
+  "name": "text_echo",
+  "version": "1.0.0",
+  "description": "Echoes input text back to the caller.",
+  "author": "example",
+  "created_at": "2026-02-03T00:00:00Z",
+  "inputs_schema": {
+    "type": "object",
+    "properties": {
+      "text": {"type": "string"}
+    },
+    "required": ["text"]
+  },
+  "outputs_schema": {
+    "type": "object",
+    "properties": {
+      "text": {"type": "string"}
+    },
+    "required": ["text"]
+  },
+  "permissions": {
+    "filesystem": "none",
+    "network": false,
+    "subprocess": false
+  },
+  "dependencies": [],
+  "tags": ["example"],
+  "examples": [
+    {
+      "description": "Echo a short string",
+      "input": {"text": "hi"},
+      "output": {"text": "hi"}
+    }
+  ]
+}
