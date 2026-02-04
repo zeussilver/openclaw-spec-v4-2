@@ -151,7 +151,7 @@ roadmap_b.md ← 独立，仅参考 overview.md 和 architecture.md
 - 明确 Project A / Project B 分期
 - 简化为单 dev 分支开发（移除 worktree 方案）
 - 新增 `roadmap_b.md`（Project B 方向性设计）
-- 移除 `worktree-setup.md` 和 `setup-worktrees.sh`
+- 移除 worktree-setup.md 和 `setup-worktrees.sh`
 
 ### 2026-02-02 v1.0.0
 

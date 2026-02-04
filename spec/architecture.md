@@ -321,7 +321,7 @@ python -m src.rollback \
 
 ### 4.2 技能契约
 
-见 `spec/contracts/skill_schema.json`
+见 `contracts/skill_schema.json`
 
 ---
 

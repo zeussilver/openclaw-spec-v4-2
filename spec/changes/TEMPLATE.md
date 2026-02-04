@@ -20,14 +20,14 @@
 
 ## 影响范围
 
-- [ ] `overview.md` - 目标/非目标变更
-- [ ] `architecture.md` - 模块/数据流变更
-- [ ] `security.md` - 安全策略变更
-- [ ] `contracts/skill_schema.json` - 契约变更
-- [ ] `gsd_tasks.md` - 任务拆分/合并/调整
-- [ ] `acceptance.md` - 验收标准变更
-- [ ] `eval/test_cases.md` - 测试用例变更
-- [ ] `eval/redteam.md` - 安全测试变更
+- [ ] `../overview.md` - 目标/非目标变更
+- [ ] `../architecture.md` - 模块/数据流变更
+- [ ] `../security.md` - 安全策略变更
+- [ ] `../contracts/skill_schema.json` - 契约变更
+- [ ] `../gsd_tasks.md` - 任务拆分/合并/调整
+- [ ] `../acceptance.md` - 验收标准变更
+- [ ] `../eval/test_cases.md` - 测试用例变更
+- [ ] `../eval/redteam.md` - 安全测试变更
 
 ## 提议的变更
 

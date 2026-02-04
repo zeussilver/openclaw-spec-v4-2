@@ -297,7 +297,7 @@ pytest tests/test_skill_model.py tests/test_registry.py tests/test_manifest_vali
 ### DoD
 - [ ] `SkillManifest` 校验正确（name/version 格式）
 - [ ] `Registry` CRUD 操作正确
-- [ ] manifest schema 校验与 `spec/contracts/skill_schema.json` 一致
+- [ ] manifest schema 校验与 `contracts/skill_schema.json` 一致
 
 ---
 
@@ -416,7 +416,7 @@ tests/
 
 ### 核心代码框架
 
-参见 `spec/security.md` 中的完整实现。
+参见 `security.md` 中的完整实现。
 
 ### 验证命令
 ```bash
